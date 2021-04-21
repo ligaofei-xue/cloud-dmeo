@@ -13,6 +13,8 @@ public class VideoOrder {
     private String videoImg;
     private Integer userId;
 
+    private String server_ip;
+
     public Integer getId() {
         return id;
     }
@@ -83,5 +85,13 @@ public class VideoOrder {
 
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+
+    public String getServer_ip() {
+        return server_ip;
+    }
+
+    public void setServer_id(String server_ip) {
+        this.server_ip = server_ip;
     }
 }

@@ -11,6 +11,8 @@ public class Video {
     private Date createTime;
     private Double point;
 
+    private String server_ip;
+
     public Integer getId() {
         return id;
     }
@@ -67,6 +69,14 @@ public class Video {
         this.point = point;
     }
 
+    public String getServer_ip() {
+        return server_ip;
+    }
+
+    public void setServer_ip(String server_ip) {
+        this.server_ip = server_ip;
+    }
+
     @Override
     public String toString() {
         return "Video{" +
@@ -77,6 +87,7 @@ public class Video {
                 ", price=" + price +
                 ", createTime=" + createTime +
                 ", point=" + point +
+                ", server_ip=" + server_ip +
                 '}';
     }
 }
