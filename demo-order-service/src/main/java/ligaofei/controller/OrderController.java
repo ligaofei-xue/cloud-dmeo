@@ -10,6 +10,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("order")
@@ -62,6 +63,35 @@ public class OrderController {
         Integer rows = videoService.save(video);
         Map<String, Object> map = new HashMap<>();
         map.put("rows", rows);
+
+        return map;
+    }
+
+
+    int temp = 0;
+    /**
+     * 临时接口，方便测试 sentinel线程数
+     * @return
+     */
+    @RequestMapping("list2")
+    public Object list(){
+        //测试 sentinel线程数
+//        try {
+//            TimeUnit.SECONDS.sleep(3);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+
+        //测试 sentinel熔断
+        temp++;
+        if(temp%3 == 0){
+            throw  new RuntimeException();
+        }
+
+        Map<String,String> map  = new HashMap<>();
+
+        map.put("title1","ALibabaCloud微服务专题");
+        map.put("title2","小滴课堂面试专题第一季");
 
         return map;
     }
